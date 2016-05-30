@@ -1,4 +1,4 @@
-require 'httparty'
+require 'rest-client'
 require 'json'
 require 'addressable/uri'
 
@@ -15,7 +15,7 @@ module Lita
         query = response.matches[0][0]
         search_result = get_results query
         puts search_result.inspect
-        response.reply search_result['items'][0]['link']
+        response.reply "#{search_result['items'][0]['link']} #{search_result['items'][0]['title']}: #{search_result['items'][0]['snippet']}"
       end
 
       def get_results(query)
@@ -24,13 +24,13 @@ module Lita
         uri.query_values = {
             q: query,
             cx: config.custom_search_engine_id,
-            searchType: 'image',
+            # searchType: 'image',
             num: 10,
             key: config.google_api_key,
             safe: config.safe_search}
         Lita.logger.debug uri.query
-        response = HTTParty.get "https://www.googleapis.com/customsearch/v1?#{uri.query}"
-        JSON.parse response.body
+        response = RestClient.get "https://www.googleapis.com/customsearch/v1?#{uri.query}"
+        JSON.parse response
       end
 
       Lita.register_handler(self)
