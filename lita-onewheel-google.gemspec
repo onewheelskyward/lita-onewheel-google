@@ -1,11 +1,11 @@
 Gem::Specification.new do |spec|
-  spec.name          = 'lita-onewheel-images'
-  spec.version       = '0.1.0'
+  spec.name          = 'lita-onewheel-google'
+  spec.version       = '0.0.0'
   spec.authors       = ['Andrew Kreps']
   spec.email         = ['andrew.kreps@gmail.com']
-  spec.description   = 'An implementation of Google Custom Search Engine for image searches in chat.'
+  spec.description   = 'An implementation of Google Custom Search Engine for searching in chat.'
   spec.summary       = 'CSE Details to follow'
-  spec.homepage      = 'https://github.com/onewheelskyward/lita-onewheel-images'
+  spec.homepage      = 'https://github.com/onewheelskyward/lita-onewheel-google'
   spec.license       = 'MIT'
   spec.metadata      = { 'lita_plugin_type' => 'handler' }
 
