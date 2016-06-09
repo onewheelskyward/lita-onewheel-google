@@ -5,7 +5,7 @@ describe Lita::Handlers::OnewheelGoogle, lita_handler: true do
 
   before(:each) do
     mock_result_json = File.open('spec/fixtures/mock_result.json').read
-    allow(OnewheelGoogle).to receive(:search).and_return(mock_result_json)
+    allow(OnewheelGoogle).to receive(:search).and_return(JSON.parse mock_result_json)
 
     registry.configure do |config|
       config.handlers.onewheel_google.custom_search_engine_id = ''
