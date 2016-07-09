@@ -17,6 +17,6 @@ describe Lita::Handlers::OnewheelGoogle, lita_handler: true do
 
   it 'does neat googly things' do
     send_command 'google yo'
-    expect(replies.last).to eq("https://www.google.com/ Google: Search the world's information, including webpages, images, videos and more. \nGoogle has many special features to help you find exactly what you're looking ...")
+    expect(replies.last).to eq("https://www.google.com/ Google: Search the world's information, including webpages, images, videos and more.  Google has many special features to help you find exactly what you're looking ...")
   end
 end
