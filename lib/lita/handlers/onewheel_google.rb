@@ -1,6 +1,3 @@
-require 'rest-client'
-require 'json'
-require 'addressable/uri'
 require 'onewheel-google'
 
 module Lita
@@ -15,7 +12,8 @@ module Lita
       def search(response)
         query = response.matches[0][0]
         result = ::OnewheelGoogle::search(query, config.custom_search_engine_id, config.google_api_key, config.safe_search)
-        response.reply "#{result['items'][0]['link']} #{result['items'][0]['title']}: #{result['items'][0]['snippet']}"
+        reply = "#{result['items'][0]['link']} #{result['items'][0]['title']}: #{result['items'][0]['snippet']}"[0..500]
+        response.reply reply
       end
 
       Lita.register_handler(self)
