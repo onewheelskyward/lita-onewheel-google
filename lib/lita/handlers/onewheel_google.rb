@@ -8,6 +8,7 @@ module Lita
       config :safe_search, required: false, default: 'medium'
 
       route /^google\s+(.*)$/i, :search, command: true
+      route /^g\s+(.*)$/i, :search, command: true
 
       def search(response)
         query = response.matches[0][0]
